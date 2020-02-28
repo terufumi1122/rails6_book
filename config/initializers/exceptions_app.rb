@@ -1,4 +1,4 @@
-Rails.application/configure do
+Rails.application.configure do
   config.exceptions_app = ->(env) do
     request = ActionDispatch::Request.new(env)
 
