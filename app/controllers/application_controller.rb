@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   layout :set_layout
 
-  rescure_from StandardError, with: :rescure500
+  rescue_from StandardError, with: :rescue500
 
   private def set_layout
     if params[:controller].match(%r{\A(staff|admin|customer)/})
