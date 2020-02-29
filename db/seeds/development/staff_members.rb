@@ -38,3 +38,4 @@ given_names = %w{
     end_date:         n == 0 ? Date.today : nil,
     suspended:        n == 1
   )
+end
