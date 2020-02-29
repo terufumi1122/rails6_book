@@ -24,10 +24,10 @@
         <td class="date"><%= m.start_date.strftime("%Y/%m/%d") %></td>
         <td class="date"><%= m.end_date.try(:strftime, "%Y/%m/%d") %></td>
         <td class="boolean">
-          <%= m.suspended? raw("&amp;#x2611;") : raw("&amp;#x2610;") %></td>
+          <%= m.suspended ? raw("&amp;#x2611;") : raw("&amp;#x2610;") %></td>
         <td class="actions">
           <%= link_to "編集", [ :edit, :admin, m ] %> |
-          <%= link_to "削除", [ :admin, m ]. method: :delete,
+          <%= link_to "削除", [ :admin, m ], method: :delete,
             data: { confirm: "本当に削除しますか？" } %>
         </td>
       </tr>
