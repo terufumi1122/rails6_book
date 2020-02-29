@@ -18,8 +18,10 @@ Rails.application.routes.draw do
       resources :staff_members
     end
   end
-
-  namespace :customer do
-    root "top#index"
+  
+  constraints host: config[:customer][:host] do
+    namespace :customer, path: config[:customer][:path] do
+      root "top#index"
+    end
   end
 end
