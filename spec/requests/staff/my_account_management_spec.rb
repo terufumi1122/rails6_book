@@ -1,6 +1,16 @@
 require "rails_helper"
 
 describe "職員による自分のアカウントの管理" do
+  before do
+    post staff_session_url,
+      params: {
+        staff_login_form: {
+          email: staff_member.email,
+          password: "pw"
+        }
+      }
+  end
+
   describe "更新" do
     let(:params_hash)  { attributes_for(:staff_member) }
     let(:staff_member) { create(:staff_member) }
