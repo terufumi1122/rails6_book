@@ -30,6 +30,21 @@ describe "管理者による職員管理" do
     end
   end
 
+  describe "情報開示" do
+    let(:administrator) { create(:administrator) }
+
+    example "成功" do
+      get admin_staff_members_url
+      expect(response.status).to eq(200)
+    end
+
+    example "停止フラグがセットされたら強制的にログアウト" do
+      administrator.update_column(:suspended, true)
+      get admin_staff_members_url
+      expect(response).to redirect_to(admin_root_url)
+    end
+  end
+
   describe "更新" do
     let(:staff_member) { create(:staff_member) }
     let(:params_hash)  { attributes_for(:staff_member) }
